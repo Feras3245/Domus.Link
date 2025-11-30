@@ -1,0 +1,283 @@
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+:root {
+    
+    --purple: #cf0667;
+    --blue: #131e5f;
+    --pink: #f61b5e;
+    --orange: #f6661e;
+    --red: #f61e1e;
+    --yellow: #ffbc69;
+    --green: #1aa707;
+
+    --white: #f0f0f0;
+    --black: #1e1e1e;
+    
+
+    --contrast-normal: light-dark(var(--white), var(--black));
+    --contrast-reverse: light-dark(var(--black), var(--white));
+
+    --grey: color-mix(in lab, var(--black) 50%, var(--white) 50%);
+
+
+    --contrast-5-percent: light-dark(color-mix(in lab, var(--white) 95%, var(--black) 5%), color-mix(in lab, var(--black) 95%, var(--white) 5%));
+    --contrast-10-percent: light-dark(color-mix(in lab, var(--white) 90%, var(--black) 10%), color-mix(in lab, var(--black) 90%, var(--white) 10%));
+    
+    --pink-5-percent: color-mix(in lab, var(--contrast-normal) 95%, var(--pink) 5%);
+    --input-background: light-dark(rgb(255,255,255), rgb(59,59,59));
+
+    --font-main: "Quicksand", Arial, sans-serif;
+    --font-alt: "Limelight", Georgia, sans-serif;
+    
+    font-size: 16px;
+    --font-size: clamp(0.875rem, 0.768rem + 0.536vw, 1.25rem);
+}
+
+body {
+    background-color: var(--contrast-normal);
+    color-scheme: light dark;
+    font-family: var(--font-main);
+    font-size: var(--font-size);
+    color: var(--contrast-reverse);
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+/* unvisited link */
+a.link:link {
+  font-weight: 300;
+  color: var(--orange);
+  text-decoration: none;
+}
+
+/* visited link */
+a.link:visited {
+  color: var(--orange);
+}
+
+/* mouse over link */
+a.link:hover {
+  text-decoration: underline;
+}
+
+/* selected link */
+a.link:active {
+  color: var(--pink);
+}
+
+svg {
+  overflow: visible;
+}
+
+a {
+  cursor: pointer;
+}
+
+/* unvisited link */
+a:link {
+  color: var(--contrast-reverse);
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: var(--contrast-reverse);
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: var(--contrast-reverse);
+}
+
+
+.carousel__next,
+.carousel__prev {
+  background: rgba(127,127,127,0.5);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: var(--white);
+  margin: 5px;
+}
+
+.carousel__next:hover,
+.carousel__prev:hover {
+  color: var(--pink);
+  background-color: var(--white);
+}
+
+.carousel__next:active,
+.carousel__prev:active {
+  color: var(--white);
+  background-color: var(--pink);
+}
+
+.carousel__next--disabled,
+.carousel__prev--disabled {
+  opacity: 0.3;
+}
+
+.carousel__pagination-button {
+  height: 5px;
+  width: 15px;
+  border-radius: 5px;
+  background-color: var(--white);
+}
+
+.carousel__pagination-button:hover {
+  background-color: var(--purple);
+}
+
+.carousel__pagination-button--active {
+  background-color: var(--pink);
+}
+
+
+
+
+
+
+
+
+/* ****************************** VUE-MULTISELECT CUSTOM STYLES */
+.multiselect {
+    position: relative;
+    
+}
+
+.multiselect__tags {
+    background-color: var(--input-background);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    border: 1px solid var(--contrast-10-percent);
+}
+
+.multiselect__placeholder {
+    color: var(--contrast-reverse);
+    font-size: var(--font-size);
+}
+
+.multiselect__input {
+    background-color: var(--input-background);
+    color: var(--contrast-reverse);
+    font-size: var(--font-size);
+}
+
+.multiselect__input::placeholder {
+    color: var(--contrast-reverse);
+}
+
+.multiselect__tag {
+    font-size: var(--font-size);
+    background: var(--pink);
+}
+
+.multiselect__tag-icon::after {
+    color: var(--white);
+}
+
+.multiselect__element {
+    color: var(--black);
+    font-size: var(--font-size);
+}
+
+
+.multiselect__option--highlight {
+background: var(--pink);
+outline: none;
+color: var(--white) !important;
+}
+
+.multiselect__option--highlight::after {
+content: attr(data-select);
+background: var(--purple);
+color: var(--white);
+}
+
+.multiselect__content-wrapper {
+    background-color: var(--input-background);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border: 1px solid var(--contrast-10-percent);
+    position: absolute;
+    width: 100%;
+}
+
+.multiselect__option {
+    color: var(--contrast-reverse);
+}
+
+.multiselect__option--selected
+{
+    background: var(--grey);
+    color: var(--white);
+    font-weight: bold;
+    font-weight: 400;
+}
+
+.multiselect__select::after  {
+    content: none;
+    border-color: var(--contrast-reverse) transparent transparent transparent;
+}
+
+.multiselect--active .multiselect__tags {
+    border: 1px solid var(--pink);
+}
+
+
+.multiselect__single {
+    color: var(--contrast-reverse);
+    background-color: var(--input-background);
+    font-size: var(--font-size);
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: var(--grey);
+}
+
+
+
+/* ****************************** VUE-Slider Styling */
+body {
+    --slider-bg: #D1D5DB;
+    --slider-connect-bg: var(--pink);
+    --slider-connect-bg-disabled: #9CA3AF;
+    --slider-height: 6px;
+    --slider-vertical-height: 300px;
+    --slider-radius: 9999px;
+
+    --slider-handle-bg: #fff;
+    --slider-handle-border: 0;
+    --slider-handle-width: 16px;
+    --slider-handle-height: 16px;
+    --slider-handle-radius: 9999px;
+    --slider-handle-shadow: 0.5px 0.5px 2px 1px rgba(0,0,0,.32);
+    --slider-handle-shadow-active: 0.5px 0.5px 2px 1px rgba(0,0,0,.42);
+    --slider-handle-ring-width: 3px;
+    --slider-handle-ring-color: #f61b5d50;
+
+    --slider-tooltip-font-size: 0.875rem;
+    --slider-tooltip-line-height: 1.25rem;
+    --slider-tooltip-font-weight: 600;
+    --slider-tooltip-min-width: 20px;
+    --slider-tooltip-bg: var(--pink);
+    --slider-tooltip-bg-disabled: #9CA3AF;
+    --slider-tooltip-color: #fff;
+    --slider-tooltip-radius: 5px;
+    --slider-tooltip-py: 2px;
+    --slider-tooltip-px: 6px;
+    --slider-tooltip-arrow-size: 5px;
+    --slider-tooltip-distance: 3px;
+}
